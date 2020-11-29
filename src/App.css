@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+/* @import './partials/normalize';
+@import './partials/header'; */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Noto+Sans+JP:wght@100;300;400;700&display=swap');
+    /* font-family: 'Audiowide', cursive;
+    font-family: 'Noto Sans JP', sans-serif; */
+
+
+html {
+    font-size: 62.5%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    font-size: 1.8rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header{
+    background-image: url('./assets/header-digital-marketing-agency-ntwrk-g39p1kDjvSY-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+form{
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+button, select{
+    padding:15px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form-section{
+    background-color:#f4f4f4;
+    padding: 60px;
+}
+
+footer p {
+    text-align: center;
 }
