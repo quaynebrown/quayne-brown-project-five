@@ -1,18 +1,20 @@
 import { Component } from 'react';
 import firebase from './firebase.js';
 
-class  AddProperty extends Component {
-    constructor(){
+class AddProperty extends Component {
+    constructor() {
         super();
         this.state = {
             imageUrl: './assets/user-image/user-image-1.jpg',
             isAvailable: true
-         }
+        }
     }
 
     handleCityChange = (e) => {
+        let city = e.target.value.trim();
+        city = city.charAt(0).toUpperCase() + city.slice(1); // take the character at 0 index then extract characters from index and concat them with the 0 index
         this.setState({
-          city: e.target.value
+            city: city
         })
     }
 
@@ -36,7 +38,7 @@ class  AddProperty extends Component {
 
     handleCostChange = (e) => {
         this.setState({
-            cost: e.target.value
+            cost: e.target.value.trim()
         })
     }
 
@@ -48,7 +50,7 @@ class  AddProperty extends Component {
 
     handleStreetAddress = (e) => {
         this.setState({
-            streetAddress: e.target.value
+            streetAddress: e.target.value.trim()
         })
     }
 
@@ -56,28 +58,28 @@ class  AddProperty extends Component {
         e.preventDefault();
         const dbRef = firebase.database().ref();
         dbRef.push(this.state);
-    } 
+    }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <form name="add-property">
-                    <input type="hidden" value="./assets/user-image/user-image-1.jpg"/>
+                    <input type="hidden" value="./assets/user-image/user-image-1.jpg" />
                     <div>
                         <label htmlFor="cost">Cost: </label>
-                        <input type="text" onChange={this.handleCostChange} name="cost" id="cost" required/>
+                        <input type="text" onChange={this.handleCostChange} name="cost" id="cost" required />
                     </div>
-    
+
                     <div>
                         <label htmlFor="street-address">Street Address: </label>
                         <input type="text" onChange={this.handleStreetAddress} name="street-address" id="street-address" required />
                     </div>
-    
+
                     <div>
                         <label htmlFor="city">City: </label>
                         <input type="text" name="city" id="city" onChange={this.handleCityChange} required />
                     </div>
-    
+
                     <div>
                         <label htmlFor="bedroom">Bedroom: </label>
                         <input type="number" onChange={this.handleBedroomChange} min="1" name="bedroom" id="bedroom" required />
@@ -86,11 +88,13 @@ class  AddProperty extends Component {
                         <label htmlFor="bathroom">Bathroom: </label>
                         <input type="number" onChange={this.handleBathroomChange} min="1" name="bathroom" id="bathroom" required />
                     </div>
-                    <label htmlFor="desc">
-                        Description: 
-                        <textarea id="desc" onChange={this.handleDescriptionChange}></textarea>
-                    </label>
-    
+                    <div>
+                        <label htmlFor="desc">
+                            Description:
+                            <textarea id="desc" onChange={this.handleDescriptionChange} required></textarea>
+                        </label>
+                    </div>
+
                     <div>
                         <button onClick={this.handleAddClick} type="submit">Add</button>
                     </div>

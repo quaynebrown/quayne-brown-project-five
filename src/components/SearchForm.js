@@ -1,39 +1,62 @@
-// import {Component} from 'react';
+import { Component } from 'react';
 import CityOptions from './CitiesDropdown.js';
 
-function SearchForm(props) {
-    return(
-        <div>
-            <form>
-                <div className="input-container">
-                    <label htmlFor="city">City name: </label>
-                    <select name="city" id="city">
-                        {
-                            props.cities.map((item) => {
-                                // console.log(item);
-                                return(
-                                    <CityOptions city={item}/>
-                                )
-                            } )
-                        }
-                        {/* <option value="option-1">option-1</option> */}
-                    </select>
-                </div>
+class SearchForm extends Component {
+    constructor() {
+        super();
+        this.state = {
+            selectedSortOption: ''
+        }
+    }
 
-                <div className="input-container">
-                    <label htmlFor="sort-by">Sort by: </label>
-                    <select name="sort-by" id="sort-by">
-                        <option value="price">Price</option>
-                        <option value="date">Available date</option>
-                    </select>
-                </div>
+    handleCitySelection = (event) => {
+        this.props.filterByCity(event.target.value);
+    }
 
-                <div className="input-container">
-                    <button type="submit">Search</button>
-                </div>
-            </form>
-        </div>
-    )
+    // handleSortSelection = (event) => {
+
+    //     const sortOption = event.target.value;
+    //     // this.setState({ selectedSortOption: sortOption })
+
+    //     console.log(event.target.value);
+    // }
+
+    render() {
+        return (
+            <div>
+                <form>
+                    <div className="input-container">
+                        <label htmlFor="city">City name: </label>
+                        <select name="city" id="city" onChange={this.handleCitySelection}>
+                            {
+                                this.props.cities.map((item) => {
+                                    return (
+                                        <CityOptions city={item} />
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+
+                    <div className="input-container">
+                        <label htmlFor="sort-by">Sort by: </label>
+                        <select
+                            name="sort-by"
+                            id="sort-by"
+                            onChange={this.handleSortSelection}
+                            value={this.state.selectedSortOption}>
+                            <option value="lowFirst" selected>Price (low - high)</option>
+                            <option value="highFirst">Price (high - low)</option>
+                        </select>
+                    </div>
+
+                    {/* <div className="input-container">
+                        <button type="submit">Search</button>
+                    </div> */}
+                </form>
+            </div>
+        )
+    }
 }
 
 export default SearchForm;
