@@ -2,7 +2,6 @@ import { Component, Fragment } from 'react';
 
 class CitiesDropdown extends Component {
 
-
     render() {
         return (
             <Fragment>

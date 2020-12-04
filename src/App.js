@@ -4,7 +4,6 @@ import Header from './components/Header.js';
 import Radio from './components/Radio.js';
 import SearchForm from './components/SearchForm.js';
 import AddProperty from './components/AddPropertyFrom.js';
-
 import Tiles from './components/Properties.js';
 import Footer from './components/Footer.js';
 import './App.css';
@@ -21,7 +20,9 @@ class App extends Component {
       properties: [],
       cities: [],
       selectedPropertiesArray: [],
-      formOption: 'search'
+      radio: {
+        formOption: 'search'
+      }
     }
   }
 
@@ -32,7 +33,7 @@ class App extends Component {
       const firebaseDataObj = data.val();
       // make a new empty array
       const propertiesArray = [];
-      const cityArray = [];
+      const cityArray = ['- Show all -'];
 
       // use the for in loop to loop through the object
       // extract the key and value of the object
@@ -74,7 +75,7 @@ class App extends Component {
 
   handleRadioChange = (e) => {
     this.setState({
-      formOption: e.target.value
+      radio: { formOption: e.target.value }
     })
   }
 
@@ -102,15 +103,23 @@ class App extends Component {
   // }
 
   filterByCity = (selectedCity) => {
-    const copyOfProperties = [...this.state.properties];
+    console.log(selectedCity)
 
-    const filteredCityArray = copyOfProperties.filter((propertyObj) => {
-      return propertyObj.city === selectedCity;
-    })
-
-    this.setState({
-      selectedPropertiesArray: filteredCityArray
-    })
+    if (selectedCity === '- Show all -'){
+      this.setState({
+        selectedPropertiesArray: this.state.properties
+      })
+    }else{
+      const copyOfProperties = [...this.state.properties];
+  
+      const filteredCityArray = copyOfProperties.filter((propertyObj) => {
+        return propertyObj.city === selectedCity;
+      })
+  
+      this.setState({
+        selectedPropertiesArray: filteredCityArray
+      })
+    }
   }
 
   render() {
@@ -128,7 +137,8 @@ class App extends Component {
               {/* FORM COMPONENT HERE */}
               {
                 // display form based on which option is selected
-                this.state.formOption === 'search' ? <SearchForm filterByCity={this.filterByCity} sortBy={this.sortByPrice} properties={this.state.selectedPropertiesArray} cities={this.state.cities.sort()} /> : <AddProperty />
+                this.state.radio.formOption === 'search' ? <SearchForm filterByCity={this.filterByCity} sortBy={this.sortByPrice} properties={this.state.selectedPropertiesArray} cities={this.state.cities.sort()} /> : <AddProperty />
+
               }
 
             </div>

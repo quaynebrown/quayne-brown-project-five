@@ -2,24 +2,11 @@ import { Component } from 'react';
 import CityOptions from './CitiesDropdown.js';
 
 class SearchForm extends Component {
-    constructor() {
-        super();
-        this.state = {
-            selectedSortOption: ''
-        }
-    }
 
     handleCitySelection = (event) => {
         this.props.filterByCity(event.target.value);
     }
 
-    // handleSortSelection = (event) => {
-
-    //     const sortOption = event.target.value;
-    //     // this.setState({ selectedSortOption: sortOption })
-
-    //     console.log(event.target.value);
-    // }
 
     render() {
         return (
@@ -37,22 +24,6 @@ class SearchForm extends Component {
                             }
                         </select>
                     </div>
-
-                    <div className="input-container">
-                        <label htmlFor="sort-by">Sort by: </label>
-                        <select
-                            name="sort-by"
-                            id="sort-by"
-                            onChange={this.handleSortSelection}
-                            value={this.state.selectedSortOption}>
-                            <option value="lowFirst" selected>Price (low - high)</option>
-                            <option value="highFirst">Price (high - low)</option>
-                        </select>
-                    </div>
-
-                    {/* <div className="input-container">
-                        <button type="submit">Search</button>
-                    </div> */}
                 </form>
             </div>
         )

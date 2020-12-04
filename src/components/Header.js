@@ -2,9 +2,7 @@ function Header()  {
     return(
         <div>
             <header>
-                <nav>
-                    <p>Quayne's property management portal</p>
-                </nav>
+                <h1>Quayne's Property Management Portal</h1>
             </header>
         </div>
     );

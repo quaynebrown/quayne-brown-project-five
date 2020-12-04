@@ -188,6 +188,30 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,h2,h3{
+  color: #750808;
+  font-family: 'Audiowide', cursive;
+  text-align: center;
+}
+
+h2{
+  color: whitesmoke;
+}
+
+h1{
+  margin: 0;
+  padding: 50px;
+  max-width: 500px;
+  background-color: rgba(255,255, 255, 0.5);
+}
+
+a{
+  color: whitesmoke;
 }
 
 form {
@@ -204,19 +228,29 @@ select {
   border: 1px solid lightgray;
 }
 
+button{
+  border: none;
+}
+
 .wrapper.select-form {
-  text-align: center;
   margin-bottom: 40px;
+}
+
+.radio-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .wrapper {
   max-width: 1200px;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
 .form-section {
-  background-color: #f4f4f4;
+  background-color: #3a4645;
+  color: whitesmoke;
   padding: 60px;
 }
 
@@ -227,17 +261,21 @@ select {
 }
 
 article {
-  border: 1px solid gray;
+  border: 1px solid #d2d2d2;
   flex-basis: 350px;
   margin: 15px;
   display: flex;
   flex-direction: column;
   padding: 15px;
-  font-size: 1.6rem;
+  color: #363636;
 }
 
 .top-article {
   display: flex;
+}
+article li:first-child{
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 ul {
@@ -249,7 +287,6 @@ ul {
 .details li {
   line-height: 1.4;
   font-size: 1.32rem;
-  color: #535353;
 }
 
 figure {
@@ -272,7 +309,7 @@ img {
 
 .description-container p {
   line-height: 1.6;
-  font-size: 1.32rem;
+  font-size: 1.45rem;
   color: #535353;
 }
 
@@ -286,6 +323,38 @@ img {
   color: whitesmoke;
 }
 
+.active {
+  background-color: violet;
+}
+
+footer{
+  background-color: #750808;
+  color: whitesmoke;
+  padding: 20px;
+}
+
 footer p {
   text-align: center;
+}
+
+@media (min-width: 480px){
+
+}
+
+@media (min-width: 680px){
+  a:hover,
+  a:focus{
+    color: #ff3939;
+  }
+
+  button:hover,
+  button:focus,
+  button:active{
+    background-color: #ff3939;
+    border-radius: 5px;
+  }
+
+  button:active{
+    color: #ff3939;
+  }
 }

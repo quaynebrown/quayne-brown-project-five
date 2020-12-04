@@ -24,7 +24,7 @@ class Properties extends Component {
                     </ul>
                 </div>
                 <div className="description-container">
-                    <h2>Description</h2>
+                    <h3>Description</h3>
                     <p>{this.props.description}</p>
                 </div>
                 <div className="delete-button-container">
