@@ -222,18 +222,23 @@ form {
 
 .input-form-container{
   display: flex;
-  justify-content: center;
+  justify-content: center;  
 }
+
+
 
 [name="add-property"]{
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+  flex: 0 1 600px;
+  padding: 0;
 }
 
 [name="add-property"] input,
 textarea{
-  flex:1;
+  width: 100%;
   margin-bottom: 10px;
+  padding: 10px;
   border-radius: 5px;
   border: none;
 }
@@ -246,6 +251,7 @@ textarea{
 
 [type="submit"]{
   padding: 15px 40px;
+  border: none;
 }
 
 button,
@@ -273,7 +279,7 @@ select {
 .form-section {
   background-color: #3a4645;
   color: whitesmoke;
-  padding: 60px;
+  padding: 60px 0;
 }
 
 .properties .wrapper {
@@ -295,6 +301,7 @@ article {
 .top-article {
   display: flex;
 }
+
 article li:first-child{
   font-size: 1.8rem;
   font-weight: 500;

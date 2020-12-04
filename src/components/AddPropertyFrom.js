@@ -63,27 +63,30 @@ class AddProperty extends Component {
     render() {
         return (
             <div className="input-form-container">
+                <div>
+
+                </div>
                 <form name="add-property">
                 
-                        <label htmlFor="cost">Cost: </label>
-                        <input type="text" onChange={this.handleCostChange} name="cost" id="cost" required="true" />
+                    <label htmlFor="cost" className="visuallyhidden">Cost: </label>
+                        <input type="text" onChange={this.handleCostChange} name="cost" id="cost" required="true" placeholder="Cost"/>
                 
-                        <label htmlFor="street-address">Street Address: </label>
-                        <input type="text" onChange={this.handleStreetAddress} name="street-address" id="street-address" required="true" />
+                        <label htmlFor="street-address" className="visuallyhidden">Street Address: </label>
+                    <input type="text" onChange={this.handleStreetAddress} name="street-address" id="street-address" required="true" placeholder="Street Address"/>
                     
-                        <label htmlFor="city">City: </label>
-                        <input type="text" name="city" id="city" onChange={this.handleCityChange} required="true" />
+                        <label htmlFor="city" className="visuallyhidden">City: </label>
+                        <input type="text" name="city" id="city" onChange={this.handleCityChange} required="true" placeholder="City"/>
                 
-                        <label htmlFor="bedroom">Bedroom: </label>
-                        <input type="number" onChange={this.handleBedroomChange} min="1" name="bedroom" id="bedroom" required="true" />
+                        <label htmlFor="bedroom" className="visuallyhidden">Bedroom: </label>
+                    <input type="number" onChange={this.handleBedroomChange} min="1" name="bedroom" id="bedroom" required="true" placeholder="Bedroom"/>
                                
-                        <label htmlFor="bathroom">Bathroom: </label>
-                        <input type="number" onChange={this.handleBathroomChange} min="1" name="bathroom" id="bathroom" required="true" />
+                        <label htmlFor="bathroom" className="visuallyhidden">Bathroom: </label>
+                    <input type="number" onChange={this.handleBathroomChange} min="1" name="bathroom" id="bathroom" required="true" placeholder="Bathroom"/>
                              
-                        <label htmlFor="desc">
+                        <label htmlFor="desc" className="visuallyhidden">
                             Description:
                         </label>
-                        <textarea id="desc" onChange={this.handleDescriptionChange} required="true"></textarea>
+                    <textarea id="desc" onChange={this.handleDescriptionChange} required="true" placeholder="Description"></textarea>
                     
 
                     <div className="add-btn-container">
