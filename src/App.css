@@ -217,8 +217,38 @@ a{
 form {
   padding: 10px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+.input-form-container{
+  display: flex;
+  justify-content: center;
+}
+
+[name="add-property"]{
   flex-wrap: wrap;
+  flex-direction: column;
+}
+
+[name="add-property"] > div {
+  display: flex;
+}
+
+[name="add-property"] label{
+  flex:0 0 130px;
+}
+
+[name="add-property"] input{
+  flex:1;
+}
+
+.add-btn-container{
+  display: flex;
+  justify-content: center;
+}
+
+[type="submit"]{
+  padding: 15px 40px;
 }
 
 button,

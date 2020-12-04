@@ -62,41 +62,40 @@ class AddProperty extends Component {
 
     render() {
         return (
-            <div>
+            <div className="input-form-container">
                 <form name="add-property">
-                    <input type="hidden" value="./assets/user-image/user-image-1.jpg" />
                     <div>
                         <label htmlFor="cost">Cost: </label>
-                        <input type="text" onChange={this.handleCostChange} name="cost" id="cost" required />
+                        <input type="text" onChange={this.handleCostChange} name="cost" id="cost" required="true" />
                     </div>
 
                     <div>
                         <label htmlFor="street-address">Street Address: </label>
-                        <input type="text" onChange={this.handleStreetAddress} name="street-address" id="street-address" required />
+                        <input type="text" onChange={this.handleStreetAddress} name="street-address" id="street-address" required="true" />
                     </div>
 
                     <div>
                         <label htmlFor="city">City: </label>
-                        <input type="text" name="city" id="city" onChange={this.handleCityChange} required />
+                        <input type="text" name="city" id="city" onChange={this.handleCityChange} required="true" />
                     </div>
 
                     <div>
                         <label htmlFor="bedroom">Bedroom: </label>
-                        <input type="number" onChange={this.handleBedroomChange} min="1" name="bedroom" id="bedroom" required />
+                        <input type="number" onChange={this.handleBedroomChange} min="1" name="bedroom" id="bedroom" required="true" />
                     </div>
                     <div>
                         <label htmlFor="bathroom">Bathroom: </label>
-                        <input type="number" onChange={this.handleBathroomChange} min="1" name="bathroom" id="bathroom" required />
+                        <input type="number" onChange={this.handleBathroomChange} min="1" name="bathroom" id="bathroom" required="true" />
                     </div>
                     <div>
                         <label htmlFor="desc">
                             Description:
-                            <textarea id="desc" onChange={this.handleDescriptionChange} required></textarea>
                         </label>
+                        <textarea id="desc" onChange={this.handleDescriptionChange} required="true"></textarea>
                     </div>
 
-                    <div>
-                        <button onClick={this.handleAddClick} type="submit">Add</button>
+                    <div className="add-btn-container">
+                        <button onClick={this.handleAddClick} type="submit">Add Property</button>
                     </div>
                 </form>
             </div>

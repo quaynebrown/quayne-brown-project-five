@@ -34,20 +34,6 @@ export default SearchForm;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // create a component that will configure firebase on react
 // make reference to the database
 // componentDidMount

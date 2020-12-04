@@ -8,10 +8,8 @@ import Tiles from './components/Properties.js';
 import Footer from './components/Footer.js';
 import './App.css';
 
-// images import
-import img1 from './assets/user-image/user-image-2.jpg';
-// import img2 from './assets/user-image/user-image-1.jpg';
-
+// image import
+import img1 from './assets/user-image/user-image-2.jpg'; //I am using this image because I don't know how to add image to the database
 
 class App extends Component {
   constructor() {
@@ -20,6 +18,7 @@ class App extends Component {
       properties: [],
       cities: [],
       selectedPropertiesArray: [],
+      selectedCity: '- Show all -',
       radio: {
         formOption: 'search'
       }
@@ -38,8 +37,6 @@ class App extends Component {
       // use the for in loop to loop through the object
       // extract the key and value of the object
       for (let properties in firebaseDataObj) {
-        // let propertyVal = firebaseDataObj[propertyKey]
-
         const { availableDate, bathroom, bedroom, cost, city, description, imageUrl, isAvailable, streetAddress } = firebaseDataObj[properties];
         // format it to the key and value of the object
         const formattedObj = {
@@ -79,31 +76,10 @@ class App extends Component {
     })
   }
 
-  // 1. pass an array of property objects as arg
-  // 2. sort each pro
-  // sortByPrice = (inputArr) => {
-  //   let copyOfinputArr = [...inputArr];
-  //   let n = copyOfinputArr.length;
-  //   for (let i = 1; i < n; i++) {
-  //     console.log(n)
-  //     // Choosing the first element in our unsorted subarray
-  //     let current = copyOfinputArr[i].cost;
-  //     // The last element of our sorted subarray
-  //     let j = i - 1;
-  //     while ((j > -1) && (current < copyOfinputArr[j].cost)) {
-  //       copyOfinputArr[j + 1] = copyOfinputArr[j];
-  //       j--;
-  //     }
-  //     copyOfinputArr[j + 1] = current;
-  //   }
-  //   // return copyOfinputArr;
-  //   this.setState({
-  //     selectedPropertiesArray: copyOfinputArr
-  //   })
-  // }
-
   filterByCity = (selectedCity) => {
-    console.log(selectedCity)
+    this.setState({
+      selectedCity: selectedCity
+    })
 
     if (selectedCity === '- Show all -'){
       this.setState({
@@ -140,16 +116,20 @@ class App extends Component {
                 this.state.radio.formOption === 'search' ? <SearchForm filterByCity={this.filterByCity} sortBy={this.sortByPrice} properties={this.state.selectedPropertiesArray} cities={this.state.cities.sort()} /> : <AddProperty />
 
               }
-
             </div>
           </section>
 
           {/* Tiles will go here */}
           <section id="properties" className="properties">
+             {
+               this.state.properties.length > 0 ?
+                this.state.selectedCity !== '- Show all -' ?
+                  <h3>Now showing properties in {this.state.selectedCity}</h3> : 
+                  <h3>Showing all properties</h3> : <h3>There is currently no available property to look at.</h3>
+              }
             <div className="wrapper">
               {
                 this.state.selectedPropertiesArray.map((element) => {
-                  // console.log(element)
                   return (
                     <Tiles
                       key={element.key}
