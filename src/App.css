@@ -230,19 +230,16 @@ form {
   flex-direction: column;
 }
 
-[name="add-property"] > div {
-  display: flex;
-}
-
-[name="add-property"] label{
-  flex:0 0 130px;
-}
-
-[name="add-property"] input{
+[name="add-property"] input,
+textarea{
   flex:1;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
 }
 
 .add-btn-container{
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }
@@ -255,11 +252,6 @@ button,
 select {
   padding: 15px;
   border-radius: 5px;
-  border: 1px solid lightgray;
-}
-
-button{
-  border: none;
 }
 
 .wrapper.select-form {

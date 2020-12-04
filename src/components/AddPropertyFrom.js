@@ -64,35 +64,27 @@ class AddProperty extends Component {
         return (
             <div className="input-form-container">
                 <form name="add-property">
-                    <div>
+                
                         <label htmlFor="cost">Cost: </label>
                         <input type="text" onChange={this.handleCostChange} name="cost" id="cost" required="true" />
-                    </div>
-
-                    <div>
+                
                         <label htmlFor="street-address">Street Address: </label>
                         <input type="text" onChange={this.handleStreetAddress} name="street-address" id="street-address" required="true" />
-                    </div>
-
-                    <div>
+                    
                         <label htmlFor="city">City: </label>
                         <input type="text" name="city" id="city" onChange={this.handleCityChange} required="true" />
-                    </div>
-
-                    <div>
+                
                         <label htmlFor="bedroom">Bedroom: </label>
                         <input type="number" onChange={this.handleBedroomChange} min="1" name="bedroom" id="bedroom" required="true" />
-                    </div>
-                    <div>
+                               
                         <label htmlFor="bathroom">Bathroom: </label>
                         <input type="number" onChange={this.handleBathroomChange} min="1" name="bathroom" id="bathroom" required="true" />
-                    </div>
-                    <div>
+                             
                         <label htmlFor="desc">
                             Description:
                         </label>
                         <textarea id="desc" onChange={this.handleDescriptionChange} required="true"></textarea>
-                    </div>
+                    
 
                     <div className="add-btn-container">
                         <button onClick={this.handleAddClick} type="submit">Add Property</button>
